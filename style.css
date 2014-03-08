@@ -1,0 +1,883 @@
+/**
+ *  Theme Name: Hope Alliance
+ *  Author: A Wright
+ *  Author URI: http://akwright.com
+ *  Description: A theme made specifically for Hope Alliance Church.
+ *  Version: 1.0
+ *  License: GNU General Public License
+ */
+
+
+
+
+
+/**
+ *  Imports
+ */
+
+@import url('styles/normalize.css');
+/*@import url('styles/foundation.css');*/
+@import url('styles/foundation_5.2.min.css');
+@import url('styles/fonts.css');
+
+
+
+
+
+/**
+ *  Helpers
+ */
+
+* { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+.button {
+  display: inline-block;
+  padding: .5em 1.5em;
+
+  text-align: center;
+
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  -webkit-transition: all 0.2s ease-in-out;
+     -moz-transition: all 0.2s ease-in-out;
+      -ms-transition: all 0.2s ease-in-out;
+       -o-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+
+.button:hover  { background-color: #e48555; color: #fff; }
+.button:active { background-color: #cc632f; }
+
+@media screen and (max-width: 500px) {
+  .button { display: block; width: 100%; }
+}
+
+.page-sep {
+  background-color: #9a9a9a;
+  border: none;
+  height: 1px;
+  margin: 20px 0;
+}
+
+.column-headers {
+  font-size: 1.5em;
+  font-weight: normal;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.no-margin-top { margin-top: 0 !important; }
+.no-margin-bottom { margin-bottom: 0 !important; }
+
+.paragraph { font-family: 'Vollkorn', Georgia, serif; }
+a {
+  color: #6c47a4;
+  text-decoration: none;
+}
+
+.underline {
+  border-bottom: 1px solid #ddd;
+  -webkit-box-shadow: 0 1px 1px -1px rgba(0,0,0,.1);
+     -moz-box-shadow: 0 1px 1px -1px rgba(0,0,0,.1);
+      -ms-box-shadow: 0 1px 1px -1px rgba(0,0,0,.1);
+       -o-box-shadow: 0 1px 1px -1px rgba(0,0,0,.1);
+          box-shadow: 0 1px 1px -1px rgba(0,0,0,.1);
+  padding-bottom: 4px;
+  margin: 40px 0;
+}
+
+
+
+
+
+/**
+ * Global
+ */
+
+body {
+  background: url('images/page-bg-texture.jpg') repeat;
+  color: #333;
+  font: 16px/1.5 "Open Sans", "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+  body.custom-background { background-position: center 130px !important; }
+
+  #masthead {
+    background-color: white;
+    height: 130px;
+  }
+
+    @media screen and (max-width: 640px) {
+      #masthead { height: auto; padding-bottom: 20px; }
+    }
+
+  #logo img { margin-top: 25px; }
+
+  .top-links { margin: 0; padding: 0; text-align: right; }
+    .widget_text { list-style: none; margin: 0; padding: 0; }
+    .top-links a,
+    .top-links p {
+      color: #777;
+      display: inline-block;
+      font-size: .75em;
+      margin-right: 30px;
+      text-decoration: none;
+    }
+      .top-links p { margin-right: 0; }
+      .top-links i { color: #aaa; margin-right: 4px; }
+
+  nav { margin: 0; }
+    nav ul {
+      font-size: 0;
+      list-style: none;
+      margin: 0;
+      text-align: justify;
+      text-justify: distribute-all-lines;
+    }
+    nav ul:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+    }
+      nav > ul > li {
+        display: inline-block;
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+        nav > ul a {
+          display: block;
+          padding: 25px 0 42px;
+        }
+        nav li a {
+          color: inherit;
+          font-size: 14px;
+          font-weight: bold;
+          text-decoration: none;
+        }
+      nav li.menu-parent-item { position: relative; }
+
+      nav li.menu-parent-item > a:after {
+        font-family: 'HopeAlliance';
+        font-size: .875em;
+        content: "\e004";
+        position: relative;
+        top: 0px;
+        right: -2px;
+      }
+        .menu-parent-item ul {
+          background-color: white;
+          -webkit-box-shadow: 0 2px 3px rgba(0,0,0,.1);
+             -moz-box-shadow: 0 2px 3px rgba(0,0,0,.1);
+               -o-box-shadow: 0 2px 3px rgba(0,0,0,.1);
+                  box-shadow: 0 2px 3px rgba(0,0,0,.1);
+          display: none;
+          padding: 0;
+          position: absolute; top: 88px; left: 0;
+          white-space: nowrap;
+          z-index: 21;
+        }
+          .home .menu-parent-item ul {
+            -webkit-box-shadow: 0 2px 3px rgba(0,0,0,.3);
+               -moz-box-shadow: 0 2px 3px rgba(0,0,0,.3);
+                 -o-box-shadow: 0 2px 3px rgba(0,0,0,.3);
+                    box-shadow: 0 2px 3px rgba(0,0,0,.3);
+          }
+          .menu-parent-item li {
+            margin: 0;
+            position: relative;
+          }
+
+            .menu-parent-item ul a  {
+              display: block;
+              -webkit-transition: all 0.25s ease-in-out;
+                 -moz-transition: all 0.25s ease-in-out;
+                  -ms-transition: all 0.25s ease-in-out;
+                   -o-transition: all 0.25s ease-in-out;
+                      transition: all 0.25s ease-in-out;
+              margin: 0;
+              padding: 10px 30px;
+              position: relative;
+            }
+            .menu-parent-item li a:hover  { background: #eee; }
+            .menu-parent-item li a:active,
+            .menu-parent-item li.current-menu-item { background: #6c47a4; color: white; }
+
+  .menu-trigger {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 2.55556rem;
+    padding-left: 1.66667rem;
+    float: right;
+
+    background: none;
+    border: 0;
+
+    font-size: 0.9em;
+  }
+    .menu-trigger:before {
+      position: absolute;
+      top: 50%; left: 50%;
+      margin: -8px 0 0 -8px;
+      width: 16px;
+      height: 2px;
+
+      background: #444;
+      -webkit-box-shadow: 0 2px #fafafa, 0 6px #444, 0 7px #fafafa, 0 12px #444;
+              box-shadow: 0 2px #fafafa, 0 6px #444, 0 7px #fafafa, 0 12px #444;
+      content: '';
+    }
+
+footer {
+  background-color: rgba(204,204,204,.2);
+  padding: 50px 0 20px;
+}
+
+    #top-footer h6 {
+      color: #4c4c4c;
+      font-size: .75em;
+      line-height: 1;
+      margin: 0 0 10px;
+      text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 640px) {
+      #top-footer section:nth-child(3) {
+        clear: both;
+      }
+    }
+
+    @media screen and (max-width: 404px) {
+      #top-footer section {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    footer .menu {
+      margin: 0 0 30px;
+      padding: 0;
+      list-style: none;
+    }
+      footer .menu a {
+        color: #6c47a4;
+        font-size: .75em;
+        text-decoration: none;
+      }
+    #top-footer .textwidget p {
+      color: #4c4c4c;
+      font-size: .75em;
+      line-height: 2;
+    }
+
+    .copyright,
+    .credit {
+      color: #4c4c4c;
+      font-size: .75em;
+      margin: 60px 0 0 0;
+    }
+      .copyright span { color: #555; }
+    .credit {
+      color: #999;
+      text-align: right;
+    }
+      .credit a { color: #6c47a4; text-decoration: none; }
+
+    @media screen and (max-width: 904px) {
+      .copyright span:first-child { font-size: 0; line-height: 0; display: block; }
+    }
+    @media screen and (max-width: 640px) {
+      .copyright,
+      .credit { text-align: center; }
+      .copyright { line-height: 2; }
+        .copyright span { display: none !important; }
+      .credit { margin-top: 40px; }
+    }
+
+
+
+
+
+/**
+ * Homepage
+ */
+
+#primary { padding: 60px 0; }
+  .page #primary {
+    -webkit-box-shadow: inset 0 3px 3px -3px rgba(0,0,0,.2);
+  }
+
+  @media screen and (max-width: 640px) {
+    #primary { padding-top: 30px; }
+  }
+
+#secondary {
+  background: url('images/church-blurred-image.jpg') top center no-repeat;
+  background-size: cover;
+  min-height: 540px;
+  padding: 60px 0 40px;
+}
+
+  #event-col  { padding-right: 15px; }
+  #sermon-col { padding-left: 15px; }
+
+  @media screen and (max-width: 640px) {
+    #event-col  { padding-right: 0; }
+    #sermon-col { padding-left: 0; }
+  }
+
+  .col-headers {
+    background-color: #6c47a4;
+    height: 40px;
+  }
+    .col-headers h2 {
+      color: white;
+      font-size: 1.313em;
+      font-weight: normal;
+      line-height: 40px;
+      padding-left: 20px;
+      text-transform: uppercase;
+    }
+
+  .col-content {
+    background-color: white;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+       -moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+         -o-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+            box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    padding: 20px 0 0 0;
+  }
+    #sermon-col .col-content { padding: 20px 20px 0 20px; }
+
+    .more-link {
+      color: #6c47a4;
+      display: inline-block;
+      font-size: .75em;
+      font-weight: bold;
+      margin: 30px 0 14px 20px;
+      text-decoration: none;
+    }
+    #sermon-col .more-link { margin-left: 0; }
+
+    .gce-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+      .gce-list-title { display: none; }
+      .gce-list > li {
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 15px;
+      }
+      .gce-list > li:last-child { border-bottom: none; }
+      .gce-list > li:even {
+        background-color: white;
+      }
+
+        .gce-list .description-wrap p,
+        .gce-list .description-wrap hr {
+          margin-right: 20px;
+        }
+        .gce-list .description-wrap hr {
+          background-color: #e5e5e5;
+          border: none;
+          height: 1px;
+          margin: 15px 20px 15px 0;
+        }
+      .gce-list ul li:last-child .description-wrap hr {
+        background-color: transparent;
+        margin-top: 0;
+      }
+
+        .gce-list li li:not(:first-child) .date-wrap { display: none; }
+        .gce-list li li:not(:first-child) .day-line  { display: none; }
+        .gce-list li li:last-child { margin-bottom: 0; padding-bottom: 0; }
+
+    #event-col .day,
+    #event-col .date {
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+    }
+    #event-col .day {
+      color: #ccc;
+      font-size: 1.875em;
+      line-height: 1.125;
+    }
+    #event-col .date {
+      color: #cecece;
+      font-size: .75em;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .date-wrap,
+    .description-wrap { float: left; }
+    .description-wrap { padding-left: 20px; }
+
+      .description-wrap .description {
+        color: #444;
+        font-size: .75em;
+        margin: 0;
+      }
+
+      .description-title,
+      .sermon-title {
+        color: #333;
+        font-size: 1.2em;
+        font-weight: normal;
+        margin: 0;
+      }
+        .sermon-title a {
+          color: inherit;
+          text-decoration: none;
+        }
+        .sermon-date,
+        .sermon-description {
+          color: #808080;
+          font-size: 14px;
+          font-size: .875rem;
+        }
+        .sermon-description {
+          color: #444;
+          display: block;
+          margin: 15px 0;
+        }
+
+      ul.sermon-widget li {
+        margin: 0 0 20px 0;
+      }
+      .sermon-title,
+      .sermon-date { display: block; }
+      .sermon-player-info {
+        font-size: 12px;
+        font-size: .75rem;
+      }
+
+    .sermon-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .home .mejs-container .mejs-controls { width: auto; }
+
+    .home .mejs-controls { top: 0; }
+
+    #get-in-touch p { font-size: .875em; line-height: 1.25em; }
+    #recent-sermons .description { margin-left: 0; }
+
+
+
+
+
+#connect {
+  background-color: rgba(204,204,204,.2);
+  padding: 50px 0;
+}
+  #connect h2 {
+    margin: 0;
+    font-size: 2.125em;
+    font-weight: normal;
+    line-height: 1;
+  }
+  #connect p { font-size: .875em; }
+
+  #social-wrap { padding-top: 25px; text-align: right; }
+    .socials {
+      background: url('images/connect-social-sprite.png') 0 0 no-repeat;
+      display: inline-block;
+      height: 51px;
+      width: 51px;
+      margin-right: 21px;
+      vertical-align: middle;
+    }
+      .socials:last-child { margin-right: 0; }
+
+      .s-facebook { background-position: 0 0; }
+      .s-twitter  { background-position: -72px 0; }
+      .s-rss      { background-position: -143px 0; }
+      .s-email    { background-position: -214px 0; }
+
+    @media screen and (max-width: 640px) {
+      #social-wrap { text-align: center; }
+    }
+
+
+
+
+
+/**
+ * Sub Pages
+ */
+
+.sub-page-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+  .sub-page-list li {
+    padding: 5px 0 5px 15px;
+    position: relative;
+  }
+  .sub-page-list a {
+    text-decoration: none;
+    -webkit-transition: all 0.15s ease-in-out;
+       -moz-transition: all 0.15s ease-in-out;
+        -ms-transition: all 0.15s ease-in-out;
+         -o-transition: all 0.15s ease-in-out;
+            transition: all 0.15s ease-in-out;
+  }
+    .sub-page-list li:hover:before {
+      content: "\e003";
+      color: #c4afe2;
+      font-family: 'HopeAlliance';
+      position: absolute;
+      left: -5px;
+    }
+    .sub-page-list li:active a { margin-left: 8px; }
+
+  .sub-page-list li.current_page_item { color: #6c47a4; }
+  .sub-page-list li.current_page_item:hover:before { color: inherit; }
+
+    .sub-page-list li.current_page_item:before {
+      content: "\e003";
+      font-family: 'HopeAlliance';
+      position: absolute;
+      left: -5px;
+    }
+
+.title {
+  margin: 0 0 10px;
+
+  color: #667;
+  font: normal 2.875em/1 'Vollkorn', Georgia, serif;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+  .entry-title {
+    margin: 4px 0;
+  }
+    .entry-title a {
+      color: #333;
+      font-style: italic;
+      text-decoration: none;
+    }
+  .sermon-tax-description p {
+    font-family: 'Vollkorn', Georgia, serif;
+    font-size: 1.25em;
+  }
+  .message-date {
+    font-size: .75em;
+    margin-top: 5px;
+  }
+
+
+
+
+
+/**
+ * Sermon List
+ */
+
+.wpfc_sorting { margin-bottom: 5em; }
+#wpfc_sermon_sorting span {
+  display: block;
+  float: left;
+  width: 22%;
+  margin: 0 2%;
+}
+#wpfc_sermon_sorting span:first-child { margin-left: 0; }
+#wpfc_sermon_sorting span:last-child { margin-right: 0; }
+
+@media screen and (max-width: 750px) {
+  #wpfc_sermon_sorting span {
+    width: 47%;
+    margin: 0 3%;
+  }
+  #wpfc_sermon_sorting span:nth-child(2n+1) { margin-left: 0; }
+  #wpfc_sermon_sorting span:nth-child(2n) { margin-right: 0; }
+}
+
+@media screen and (max-width: 400px) {
+  #wpfc_sermon_sorting span {
+    float: none;
+    width: 100%;
+    margin: 0 0 .6em;
+  }
+}
+
+.archive .full-width {
+  background-color: rgba(204,204,204,.2);
+  padding: 1em 0;
+}
+  .archive .wpfc_sermon.small-12 {
+    float: none;
+    margin: 3em 0;
+  }
+
+  .wpfc_sermon .entry-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+    .wpfc_sermon .entry-title a { font-style: normal; }
+
+  @media screen and (max-width: 640px) {
+    .archive .wpfc_sermon_image { margin-bottom: 20px; }
+  }
+
+
+
+  .entry-meta {
+    font-size: .75em;
+  }
+
+  .wpfc_sermon .button {
+    margin-top: 20px;
+
+    background-color: #667;
+    color: white;
+  }
+    .wpfc_sermon .button:hover  { background-color: #6c47a4; }
+    .wpfc_sermon .button:active { background-color: #32165d; }
+
+
+
+
+/**
+ * Single Sermon
+ */
+
+.sermon-link {
+  font-size: 1.75em;
+  margin: 0 0 20px;
+}
+  .sermon-meta {
+    color: #777;
+    font-size: .875em;
+    margin: 0 0 20px 0;
+    padding-bottom: 10px;
+  }
+    .preacher-name { margin: 0 0 10px; }
+    .bible-passage { margin: 0; }
+    .single-sermon  margin: 5px 0 0 0;
+    #wpfc-attachments a {
+      display: block;
+      margin-top: 10px;
+    }
+  #nav-below {
+    margin: 40px 0;
+  }
+    .nav-next { text-align: right; }
+
+  @media screen and (max-width: 350px) {
+    .nav-previous,
+    .nav-next {
+      width: 100%;
+      margin: 20px 0;
+      text-align: center;
+    }
+  }
+
+
+
+
+
+/**
+ * Contact
+ */
+
+.contact-widget h4 {
+  margin: 20px 0 5px;
+}
+  .contact-widget h4:first-child { margin-top: 0; }
+
+.contact-widget p {
+  font-size: .875em;
+  margin: 6px 0;
+}
+
+
+
+
+
+/**
+ * Mobile Menu
+ */
+
+html, body, .perspective {
+  width: 100%;
+  height: 100%;
+}
+
+.perspective {
+  background: #aaa;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.container {
+  background: #fff;
+  min-height: 100%;
+  position: relative;
+  outline: 1px solid rgba(0,0,0,0);
+  z-index: 10;
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,.2);
+}
+  .container::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 0px;
+    opacity: 0;
+    background: rgba(0,0,0,0.2);
+    /* the transition delay of the height needs to be synced with the container transition time */
+    -webkit-transition: opacity 0.4s, height 0s 0.4s;
+            transition: opacity 0.4s, height 0s 0.4s;
+  }
+
+.wrapper { position: relative; }
+
+.component {
+  margin: 0 auto;
+  width: 60%;
+  text-align: justify;
+  font-size: 1.5em;
+}
+
+/* Modal view */
+.perspective.modalview {
+  position: fixed;
+  -webkit-perspective: 1500px;
+          perspective: 1500px;
+}
+
+.modalview .container {
+  position: absolute;
+  overflow: hidden;
+  width: 100%; height: 100%;
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.modalview .wrapper {
+  -webkit-transform: translateZ(-1px); /* solves a rendering bug in Chrome on Windows */
+}
+
+.animate .container::after {
+  opacity: 1;
+  height: 101%;
+  -webkit-transition: opacity 0.3s;
+          transition: opacity 0.3s;
+}
+
+/* Outer Nav */
+.outer-nav {
+  position: fixed;
+  height: auto;
+  font-size: 2em;
+}
+
+.outer-nav.vertical {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.outer-nav.right  { right: 20%; }
+
+.outer-nav li {
+  list-style: none;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.outer-nav a {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 1em;
+  font-weight: 300;
+  margin: 0 0 30px 0;
+  color: #fff;
+  -webkit-transition: color 0.3s;
+          transition: color 0.3s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.outer-nav a:hover { color: rgba(255,255,255,.4); }
+.outer-nav.vertical a { display: block; }
+.outer-nav.horizontal a { margin: 15px 20px; }
+
+/* Effect Rotate Left */
+.effect-rotateleft { background: #6c47a4; }
+
+.effect-rotateleft .container {
+  -webkit-transition: -webkit-transform 0.4s;
+          transition: transform 0.4s;
+  -webkit-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+}
+
+.effect-rotateleft .container::after {
+  background: rgba(255,255,255,0.6);
+}
+
+.effect-rotateleft.animate .container {
+  -webkit-transform: translateZ(-1800px) translateX(-50%) rotateY(45deg);
+          transform: translateZ(-1800px) translateX(-50%) rotateY(45deg);
+}
+
+.no-csstransforms3d .effect-rotateleft.animate .container {
+  left: -75%;
+}
+
+.effect-rotateleft .outer-nav li {
+  opacity: 0;
+  -webkit-transform: translateX(350px) translateZ(-1000px);
+          transform: translateX(350px) translateZ(-1000px);
+  -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+          transition: transform 0.4s, opacity 0.4s;
+}
+
+.effect-rotateleft.animate .outer-nav li {
+  opacity: 1;
+  -webkit-transform: translateX(0) translateZ(0);
+          transform: translateX(0) translateZ(0);
+}
+
+.effect-rotateleft.animate .outer-nav li:nth-child(2) {
+  -webkit-transition-delay: 0.04s;
+          transition-delay: 0.04s;
+}
+
+.effect-rotateleft.animate .outer-nav li:nth-child(3) {
+  -webkit-transition-delay: 0.08s;
+          transition-delay: 0.08s;
+}
+
+.effect-rotateleft.animate .outer-nav li:nth-child(4) {
+  -webkit-transition-delay: 0.08s;
+          transition-delay: 0.08s;
+}
+
+.effect-rotateleft.animate .outer-nav li:nth-child(5) {
+  -webkit-transition-delay: 0.16s;
+          transition-delay: 0.16s;
+}
+
+.effect-rotateleft.animate .outer-nav li:nth-child(6) {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.effect-rotateleft.animate .outer-nav li:nth-child(7) {
+  -webkit-transition-delay: 0.24s;
+          transition-delay: 0.24s;
+}
