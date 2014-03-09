@@ -147,7 +147,15 @@ body {
         nav > ul a {
           display: block;
           padding: 25px 0 42px;
+
+          -webkit-transition: color .2s ease-in-out;
+             -moz-transition: color .2s ease-in-out;
+              -ms-transition: color .2s ease-in-out;
+                  transition: color .2s ease-in-out;
         }
+          nav > ul a:hover { color: rgba(51,51,51,.5); }
+          nav > ul > li a:active,
+          nav > ul > li.current-menu-item a { color: #6c47a4; }
         nav li a {
           color: inherit;
           font-size: 14px;
@@ -247,7 +255,7 @@ footer {
       }
     }
 
-    @media screen and (max-width: 404px) {
+    @media screen and (max-width: 340px) {
       #top-footer section {
         width: 100%;
         text-align: center;
@@ -302,14 +310,48 @@ footer {
  * Homepage
  */
 
-#primary { padding: 60px 0; }
-  .page #primary {
-    -webkit-box-shadow: inset 0 3px 3px -3px rgba(0,0,0,.2);
+#primary {
+  padding: 60px 0;
+
+  -webkit-box-shadow: inset 0 3px 3px -3px rgba(0,0,0,.2);
+       -moz-box-shadow: inset 0 3px 3px -3px rgba(0,0,0,.2);
+        -ms-box-shadow: inset 0 3px 3px -3px rgba(0,0,0,.2);
+            box-shadow: inset 0 3px 3px -3px rgba(0,0,0,.2);
+}
+  .home #primary {
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+        -ms-box-shadow: none;
+            box-shadow: none;
   }
 
   @media screen and (max-width: 640px) {
     #primary { padding-top: 30px; }
   }
+
+#slider .bullet {
+  height: 16px; width: 16px;
+  margin-left: 6px;
+
+  background: rgba(255,255,255,.6);
+
+  -webkit-transition: background-color .2s ease-in-out;
+     -moz-transition: background-color .2s ease-in-out;
+      -ms-transition: background-color .2s ease-in-out;
+          transition: background-color .2s ease-in-out;
+
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+     -moz-box-shadow: 0 1px 3px rgba(0,0,0,.3);
+          box-shadow: 0 1px 3px rgba(0,0,0,.3);
+
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+}
+  #slider .bullet:hover { background-color: rgba(255,255,255,.9); }
+  #slider .bullet.selected,
+  #slider .bullet.selecte:hover { background-color: #6c47a4; }
+
 
 #secondary {
   background: url('images/church-blurred-image.jpg') top center no-repeat;
@@ -351,7 +393,7 @@ footer {
 
     .more-link {
       color: #6c47a4;
-      display: inline-block;
+      display: block;
       font-size: .75em;
       font-weight: bold;
       margin: 30px 0 14px 20px;
@@ -551,12 +593,14 @@ footer {
 
   color: #667;
   font: normal 2.875em/1 'Vollkorn', Georgia, serif;
-  line-height: 1;
-  text-transform: uppercase;
+  line-height: 1.2;
   letter-spacing: -2px;
 }
+  .title span { color: #333; }
+
   .entry-title {
     margin: 4px 0;
+    line-height: 1.2;
   }
     .entry-title a {
       color: #333;
@@ -580,7 +624,45 @@ footer {
  * Sermon List
  */
 
-.wpfc_sorting { margin-bottom: 5em; }
+ /* controls padding around video embeds */
+.wpfc_sermon-video {
+  margin: 10px 0 10px;
+  max-width: 100%;
+  clear:both;
+}
+.wpfc_sermon-video iframe, .wpfc_sermon-video embed {
+  max-width: 100%;
+}
+.mejs-container, #wpfc_sermon iframe, #wpfc_sermon object, #wpfc_sermon embed {max-width: 100%;}
+
+.wpfc_sermon-notes {
+  margin: 10px 0 10px;
+}
+
+/* controls padding around audio player */
+.wpfc_sermon-audio {
+  margin: 10px 0 10px;
+  max-width: 100%;
+  clear:both;
+}
+.mejs-container {
+  width: 100% !important;
+  height: auto !important;
+  padding-top: 57% !important;
+}
+  .mejs-audio { height: 30px !important; padding-top: 0 !important; }
+.mejs-overlay, .mejs-poster {
+  width: 100% !important;
+  height: 100% !important;
+}
+.mejs-mediaelement video {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.wpfc_sorting { margin-bottom: 0; }
 #wpfc_sermon_sorting span {
   display: block;
   float: left;
@@ -613,14 +695,15 @@ footer {
 }
   .archive .wpfc_sermon.small-12 {
     float: none;
-    margin: 3em 0;
+    margin: 3em inherit;
   }
+
+  .wpfc_sermon.cf { margin-top: 20px; }
 
   .wpfc_sermon .entry-title {
     margin-top: 0;
     margin-bottom: 10px;
 
-    line-height: 1;
     letter-spacing: -2px;
   }
     .wpfc_sermon .entry-title a { font-style: normal; }
@@ -630,10 +713,25 @@ footer {
   }
 
 
-
-  .entry-meta {
-    font-size: .75em;
+  .sermon-tax-description,
+  #wpfc_sermon_tax_description .archive-meta {
+    border-bottom: 4px solid #eee;
+    margin-bottom: 40px;
   }
+
+  .tax-wpfc_sermon_series .wpfc_sermon,
+  .tax-wpfc_preacher .wpfc_sermon,
+  .tax-wpfc_bible_book .wpfc_sermon,
+  .tax-wpfc_sermon_topics .wpfc_sermon {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+  }
+    .wpfc_sermon:last-child { border-bottom: none; }
+
+
+
+  .entry-meta { font-size: .75em; }
 
   .wpfc_sermon .button {
     margin-top: 20px;
@@ -669,7 +767,7 @@ footer {
       margin-top: 10px;
     }
   #nav-below {
-    margin: 40px 0;
+    margin: 60px auto 0;
   }
     .nav-next { text-align: right; }
 
@@ -681,6 +779,10 @@ footer {
       text-align: center;
     }
   }
+
+
+  .tax-wpfc_bible_book .title,
+  .tax-wpfc_sermon_topics .title { margin-bottom: 40px; }
 
 
 
@@ -716,7 +818,7 @@ html, body, .perspective {
 .perspective {
   background: #aaa;
   position: relative;
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -801,7 +903,7 @@ html, body, .perspective {
 .outer-nav a {
   display: inline-block;
   white-space: nowrap;
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 300;
   margin: 0 0 30px 0;
   color: #fff;
@@ -880,4 +982,9 @@ html, body, .perspective {
 .effect-rotateleft.animate .outer-nav li:nth-child(7) {
   -webkit-transition-delay: 0.24s;
           transition-delay: 0.24s;
+}
+
+.effect-rotateleft.animate .outer-nav li:nth-child(8) {
+  -webkit-transition-delay: 0.28s;
+          transition-delay: 0.28s;
 }

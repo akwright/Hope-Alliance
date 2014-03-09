@@ -9,10 +9,12 @@
 		<?php is_front_page() ? bloginfo('description') : wp_title(''); ?>
 	</title>
 
-	<link rel="profile" href="http://gmpg.org/xfn/11" />
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+	<link rel="shortcut icon" href="<?php echo bloginfo('template_url') . '/favicon.ico' ?>">
 
-	<link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css' />
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
+	<link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
 
 	<!--[if lt IE 9]>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
@@ -30,12 +32,12 @@
 
 				<header id="masthead" role="banner">
 					<div class="row">
-						<div class="small-10 medium-6 columns">
+						<div class="small-10 medium-5 columns">
 							<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 								<img src="<?php echo get_template_directory_uri(); ?>/images/hope_alliance-logo.png" alt="Hope Alliance Church" />
 							</a>
 						</div>
-						<div class="hide-for-medium-down medium-6 columns">
+						<div class="hide-for-medium-down medium-7 columns">
 							<menu class="top-links">
 							<?php if(is_active_sidebar('top_links'))
 								dynamic_sidebar('top_links'); ?>

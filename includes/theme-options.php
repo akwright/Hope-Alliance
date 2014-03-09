@@ -355,7 +355,7 @@ function hope_header_custom_styles() {
 		#slider {
 			/*background: url('<?php echo $options['image']; ?>') no-repeat center top;*/
 			/*background-size: cover;*/
-			max-height: 470px;
+			max-height: 550px;
 		}
 			/*#slider h3,
 			#slider h1 { color: white; margin: 0; }

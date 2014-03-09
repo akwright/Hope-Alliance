@@ -1,16 +1,3 @@
-			<!-- <section id="connect">
-				<div class="row">
-					<div class="small-12 medium-5 columns">
-						<h2>Connect With Us</h2>
-						<p>Stay up-to-date on what’s going on at Hope Alliance by following us on social media, or sending us an email!</p>
-					</div>
-					<div id="social-wrap" class="small-12 medium-offset-1 medium-6 columns">
-						<a class="socials s-facebook" href="#"></a>
-						<a class="socials s-email" href="#"></a>
-					</div>
-				</div>
-			</section> -->
-
 			<footer class="site-footer" role="contentinfo">
 				<section id="top-footer" class="row">
 					<?php if(is_active_sidebar('footer_widget_1'))

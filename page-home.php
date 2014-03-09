@@ -12,22 +12,6 @@ get_header(); ?>
 
 <section id="slider">
 	<?php putRevSlider("homepage_slider") ?>
-	<!-- <div class="row">
-		<div class="small-12 text-center columns">
-			<?php //echo $options['image_html']; ?>
-			<?php
-				//$series = '';
-				//$link = get_permalink($options['btn_link']);
-				//if ($options['featured_link'] != '') {
-				//	$link = site_url();
-				//	$series = "/sermons/series/" . $options['featured_link'];
-				//}
-			?>
-			<a href="<?php //echo $link . $series; ?>">
-				<span><?php //echo $options['btn_text']; ?></span>
-			</a>
-		</div>
-	</div> -->
 </section>
 
 <section id="primary">
@@ -83,7 +67,7 @@ get_header(); ?>
 				<div class="col-headers">
 					<h2 class="column-headers">Upcoming Events</h2>
 				</div>
-				<div class="col-content">
+				<div class="col-content clearfix">
 					<?php echo do_shortcode( '[google-calendar-events id="1" type="list-grouped" max="3"]' ); ?>
 					<a href="events/" class="more-link">SEE ALL EVENTS</a>
 				</div>
@@ -92,18 +76,15 @@ get_header(); ?>
 		<div class="small-12 medium-6 columns">
 			<div id="sermon-col">
 				<div class="col-headers">
-					<h2 class="column-headers">Latest Sermon</h2>
+					<h2 class="column-headers">Recent Sermons</h2>
 				</div>
-				<div class="col-content">
+				<div class="col-content clearfix">
 					<?php
-						// Setting up the Query - see http://codex.wordpress.org/Class_Reference/WP_Query
 						$latest_sermon = new WP_Query(array(
 							'post_type' => 'wpfc_sermon',
 							'posts_per_page' => 1,
 							'post_status' => 'publish',
-							// Do you want to limit it to a specific service type? Use the service type slug to do it:
 							'wpfc_service_type' => 'sunday-service',
-							// The last three parameters will optimize your query
 						    'no_found_rows' => true,
 						    'update_post_term_cache' => false,
 						    'update_post_meta_cache' => false

@@ -68,7 +68,7 @@ get_header(); ?>
 
 				<?php endif; ?>
 
-				<div id="nav-below" class="navigation row collapse">
+				<div id="nav-below" class="navigation row clearfix">
 					<div class="nav-previous small-6 columns"><?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'sermon-manager' ) . '</span> %title' ); ?></div>
 					<div class="nav-next small-6 columns"><?php next_post_link( '%link', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', 'sermon-manager' ) . '</span>' ); ?></div>
 				</div><!-- #nav-below -->

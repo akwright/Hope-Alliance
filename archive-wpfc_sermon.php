@@ -7,10 +7,8 @@
 
 get_header(); ?>
 
-<section id="primary">
+	<section id="primary">
 		<div id="content" role="main">
-
-
 			<?php
 				$sermon_settings = get_option('wpfc_options');
 				$archive_title = $sermon_settings['archive_title'];
@@ -110,12 +108,10 @@ get_header(); ?>
 
 			<?php /* Display navigation to next/previous pages when applicable */ ?>
 			<?php if (  $wp_query->max_num_pages > 1 ) : ?>
-				<div class="row">
-					<div id="nav-below" class="navigation">
-						<div class="nav-previous small-6 columns"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'sermon-manager' ) ); ?></div>
-						<div class="nav-next small-6 columns"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'sermon-manager' ) ); ?></div>
-					</div><!-- #nav-below -->
-				</div>
+				<div id="nav-below" class="navigation row clearfix">
+					<div class="nav-previous small-6 columns"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'sermon-manager' ) ); ?></div>
+					<div class="nav-next small-6 columns"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'sermon-manager' ) ); ?></div>
+				</div><!-- #nav-below -->
 			<?php endif; ?>
 
 
